@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const SearchBlock = () => {
     const searchText = 'event lox';
     return (
