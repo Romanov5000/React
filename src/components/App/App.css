@@ -1,0 +1,12 @@
+.App {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
