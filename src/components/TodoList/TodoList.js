@@ -3,16 +3,20 @@ import TodoListItem from '../TodoListItem'
 
 import './TodoList.css'
 
-const TodoList = (props)=>{
+const TodoList = (props) => {
+  const { todos, onDelete, onToggleDone } = props;
 
-  const elements = props.todos.map((item)=>{
+  const elements = todos.map((item)=>{
 
-    const{id, ...otherPros}= item;
+    const{id, ...otherPros} = item;
 
     return (
-        <li className="list-group-item" key = {id}>  
+        <li className="list-group-item" key={id}>  
           <TodoListItem 
-           {...otherPros}/>
+            {...otherPros}
+            onDelete={() => onDelete(id)}
+            onToggleDone={() => onToggleDone(id)}
+          />
         </li>
     );
   });

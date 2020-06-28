@@ -2,9 +2,19 @@ import React from 'react';
 
 import './Header.css'
 
-const Header = ()=>{
+const Header = (props)=>{
 
-    return <h1>Todo List</h1>;
+  const { done, todo } = props;
+
+    return (
+      <div className="Header">
+        <h1>Todo List</h1>
+        <p>
+          <span>done: {done}</span>
+          <span>todo: {todo}</span>
+        </p>
+      </div>
+    );
   }
 
   export default Header;
