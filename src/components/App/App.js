@@ -14,7 +14,7 @@ export default class App extends React.Component {
   state = {
     todoData : [
       {text: 'Learn HTML', important: false, done: false, id:1}, 
-      {text: 'Learn CSS', important: true, done: false, id:2}, 
+      {text: 'Learn CSS', important: false, done: false, id:2}, 
       {text: 'Learn JS', important: false, done: false, id:3}  
     ],
   }
@@ -52,7 +52,7 @@ export default class App extends React.Component {
   }
 
   onToggleDone = (id) => {
-    console.log(id);
+    
     this.setState((prevState) => {
       const index = prevState.todoData.findIndex((el) => el.id === id);
 
@@ -73,10 +73,32 @@ export default class App extends React.Component {
     })
   }
 
+  onToggleImportant = (id) => {
+    
+    this.setState((prevState) => {
+      const index = prevState.todoData.findIndex((el) => el.id === id);
+      const newObj = {
+        ...prevState.todoData[index],
+        important: !prevState.todoData[index].important
+      };
+      const newArr = [
+        ...prevState.todoData.slice(0, index),
+        newObj,
+        ...prevState.todoData.slice(index + 1)
+      ];
+
+      return {
+        todoData: newArr
+      } 
+    })
+  }
+  lll = () => {
+    
+  }
   render() {
     return (
       <div className="App">
-        <Header done={2} todo={1}/>
+        <Header done={0} todo={0}/>
         <div className="line">
           <SearchBlock />
           <Filter/>
@@ -86,6 +108,7 @@ export default class App extends React.Component {
           todos={this.state.todoData}
           onDelete={this.onDelete}
           onToggleDone={this.onToggleDone}
+          onToggleImportant={this.onToggleImportant}
         />
       </div>
     );
