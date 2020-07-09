@@ -17,7 +17,8 @@ export default class App extends React.Component {
       { text: 'Learn CSS', important: false, done: false, id: 2 },
       { text: 'Learn JS', important: false, done: false, id: 3 }
     ],
-    filter: 'active', // all || active || done
+    filter: 'all', // all || active || done
+    search: '', // Type string
   }
 
   filter = (arr, filter) => {
@@ -31,7 +32,16 @@ export default class App extends React.Component {
       default: return arr
     }
   }
+  search = (arr, searchText) => {
+    if (!searchText) {
+      return arr
+    }
+    const newArr = arr.filter((item) => {
+      return item.text.toLowerCase().includes(searchText.toLowerCase())
+    });
 
+    return newArr;
+  }
   onDelete = (id) => {
     this.setState((prevState) => {
       const index = prevState.todoData.findIndex((el) => el.id === id);
@@ -102,31 +112,38 @@ export default class App extends React.Component {
   }
   onFilterChange = (filter) => {
     this.setState({
-      filter : filter,
+      filter: filter,
     })
   }
+  onSearch = (search) => {
+    this.setState({
+      search: search,
+    })
+  }
+
   render() {
-    const {todoData, filter} = this.state;
+    const { todoData, filter, search } = this.state;
     const doneSize = todoData.filter(el => el.done).length;
     const todoSize = (todoData.length - doneSize);
-    const visibleTodos = this.filter(todoData, filter);
+    const visibleTodos = this.search(this.filter (todoData, filter), search);
 
     return (
       <div className="App">
         <Header done={doneSize} todo={todoSize} />
         <div className="line">
-          <SearchBlock />
-          <Filter 
-          filter = {filter}
-          onFilterChange= {this.onFilterChange}/>
+          <SearchBlock
+            onSearch={this.onSearch} />
+          <Filter
+            filter={filter}
+            onFilterChange={this.onFilterChange} />
         </div>
         <ItemAddForm onAdd={this.onAdd} />
-        <TodoList
+        {todoData.length ? <TodoList
           todos={visibleTodos}
           onDelete={this.onDelete}
           onToggleDone={this.onToggleDone}
           onToggleImportant={this.onToggleImportant}
-        />
+        /> : <p>No Todo!</p>}
       </div>
     );
   }
