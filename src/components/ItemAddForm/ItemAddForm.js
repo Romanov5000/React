@@ -34,6 +34,7 @@ export default class ItemAddForm extends React.Component {
                 className="addButton btn btn-primary"
             >Add item</button>
             </form>
+            <hr/>
         </div>
         
     );

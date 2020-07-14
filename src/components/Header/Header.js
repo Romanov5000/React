@@ -8,10 +8,10 @@ const Header = (props)=>{
 
     return (
       <div className="Header">
-        <h1>Todo List</h1>
+        <h1>To do List</h1>
         <p>
-          <span>done: {done}</span>
           <span>todo: {todo}</span>
+          <span>done: {done}</span>
         </p>
       </div>
     );

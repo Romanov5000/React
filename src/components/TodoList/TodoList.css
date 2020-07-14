@@ -1,0 +1,21 @@
+.tranformTodo-exit-active {
+    animation: tranformTodo 700ms ease-out forwards;
+}
+.tranformTodo-enter-active {
+    animation: tranformTodo 700ms ease-in alternate-reverse;
+}
+
+@keyframes tranformTodo {
+    0% {
+        transform: translateX(0);
+    }
+    30% {
+        opacity: .7;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+}
+

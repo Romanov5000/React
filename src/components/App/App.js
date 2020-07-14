@@ -15,7 +15,9 @@ export default class App extends React.Component {
     todoData: [
       { text: 'Learn HTML', important: false, done: false, id: 1 },
       { text: 'Learn CSS', important: false, done: false, id: 2 },
-      { text: 'Learn JS', important: false, done: false, id: 3 }
+      { text: 'Learn JS', important: false, done: false, id: 3 },
+      { text: 'Learn React', important: false, done: false, id: 4 },
+      { text: 'Learn Redux', important: false, done: false, id: 5 },
     ],
     filter: 'all', // all || active || done
     search: '', // Type string
@@ -126,7 +128,7 @@ export default class App extends React.Component {
     const doneSize = todoData.filter(el => el.done).length;
     const todoSize = (todoData.length - doneSize);
     const visibleTodos = this.search(this.filter (todoData, filter), search);
-
+    
     return (
       <div className="App">
         <Header done={doneSize} todo={todoSize} />
@@ -138,12 +140,12 @@ export default class App extends React.Component {
             onFilterChange={this.onFilterChange} />
         </div>
         <ItemAddForm onAdd={this.onAdd} />
-        {todoData.length ? <TodoList
+        <TodoList
           todos={visibleTodos}
           onDelete={this.onDelete}
           onToggleDone={this.onToggleDone}
           onToggleImportant={this.onToggleImportant}
-        /> : <p>No Todo!</p>}
+        />
       </div>
     );
   }
