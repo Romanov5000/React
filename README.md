@@ -3,9 +3,9 @@
 
 
 You can: 
-1. Create to-do
-2. Delete to-do
-3. To mark as important
-4. The search for to-do
-5. Sorting to-do by all, active, done.
+* Create to-do
+* Delete to-do
+* To mark as important
+* The search for to-do
+* Sorting to-do by all, active, done.
 Happy use!
