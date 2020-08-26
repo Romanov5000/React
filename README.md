@@ -1,8 +1,8 @@
 
-### Hello World! This is my to-do list project.
+## Hello World! This is my to-do list project.
 
 
-## You can:
+### You can:
 * **Create to-do**
 * **Delete to-do**
 * **To mark as important**
