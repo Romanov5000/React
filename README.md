@@ -1,9 +1,13 @@
 
-## Available Scripts
+## Hello World! This is my to-do list project.
 
-In the project directory, you can run:
 
-### `npm start`
+### You can:
+* **Create to-do**
+* **Delete to-do**
+* **To mark as important**
+* **The search for to-do**
+* **Sorting to-do by all, active, done**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+**Happy use!**
