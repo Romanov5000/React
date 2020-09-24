@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "extends": "react-app",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --branch master"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
